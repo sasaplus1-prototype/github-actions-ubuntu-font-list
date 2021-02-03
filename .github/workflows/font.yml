@@ -1,0 +1,19 @@
+name: font
+
+on:
+  - push
+
+jobs:
+  font:
+    name: font
+    strategy:
+      matrix:
+        os:
+          - ubuntu-16.04
+          - ubuntu-18.04
+          - ubuntu-20.04
+    runs-on: ${{ matrix.os }}
+    steps:
+      - run: cat /etc/lsb_release
+      - run: sudo apt-get --yes install fontconfig
+      - run: fc-list
