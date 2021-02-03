@@ -14,6 +14,6 @@ jobs:
           - ubuntu-20.04
     runs-on: ${{ matrix.os }}
     steps:
-      - run: cat /etc/lsb_release
-      - run: sudo apt-get --yes install fontconfig
+      - run: sudo apt-get --yes install fontconfig lsb-release
+      - run: lsb_release -a
       - run: fc-list
